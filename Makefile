@@ -15,7 +15,9 @@ LIBFT	=	./libft/libft.a
 
 SRC		=	ft_printf.c		\
 			ft_formchar.c	\
-			ft_formstr.c
+			ft_formstr.c	\
+			ft_formadr.c	\
+			ft_formnbr.c
 OBJ		=	$(SRC:c=o)
 HEADER	=	ft_printf.h
 

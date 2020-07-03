@@ -27,12 +27,14 @@ typedef struct	s_fl
 }				t_fl;
 
 int				ft_printf(const char *format, ...);
-int				ft_print_char(char c, t_fl *fl);
 int				ft_form_prnt(va_list factor, const char **format);
 void			ft_prec(const char **str, va_list factor, t_fl *fl);
 int				ft_type(t_fl *fl, const char *str, \
 						va_list factor, const char **format);
-int				ft_putchars(char c, int nbr);
+int				ft_putchars(char c, int nbr, char *str, char pdn);
+int				ft_print_char(char c, t_fl *fl);
 int				ft_print_str(char *str, t_fl *fl);
+int				ft_print_adr(long long num, t_fl *fl);
+int				ft_print_nbr(int adr, t_fl *fl);
 
 #endif

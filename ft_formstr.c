@@ -2,10 +2,23 @@
 
 int				ft_print_str(char *str, t_fl *fl)
 {
+	int		s_len;
+	char 	*tmp;
+	int		res;
+
 	if (!str)
 		return (ft_putstr("(null)"));
-	if (fl->prec)
+	s_len = ft_strlen(str);
+	if (!(tmp = malloc(s_len)))
+		return (-2);
+	ft_strlcpy(tmp, str, s_len + 1);
+	if (fl->prec != -1 && fl->prec < s_len)
 	{
+		tmp[fl->prec] = '\0';
+		s_len = fl->prec;
 	}
-	return (0);
+	res = ft_putchars(' ', fl->width - s_len, tmp, fl->pdn);
+	free(tmp);
+	tmp = NULL;
+	return (res);
 }

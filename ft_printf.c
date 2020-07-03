@@ -74,17 +74,32 @@ void			ft_prec(const char **str, va_list factor, t_fl *fl)
 			(*str)++;
 	}
 	else
+	{
 		fl->prec = 0;
+		--(*str);
+	}
 }
 
-int				ft_putchars(char c, int nbr)
+int				ft_putchars(char c, int nbr, char *str, char pdn)
 {
+	int res;
 	int i;
 
 	i = 0;
-	while (++i < nbr)
-		ft_putchar(c);
-	return (nbr - 1);
+	res = 0;
+	if (pdn)
+	{
+		res = ft_putstr(str);
+		while (i++ < nbr)
+			res += ft_putchar(c);
+	}
+	else
+	{
+		while (i++ < nbr)
+			res += ft_putchar(c);
+		res += ft_putstr(str);
+	}
+	return (res);
 }
 
 int				ft_type(t_fl *fl, const char *str, \
@@ -100,11 +115,11 @@ int				ft_type(t_fl *fl, const char *str, \
 		res = ft_print_char(va_arg(factor, int), fl);
 	else if (type == 's')
 		res = ft_print_str(va_arg(factor, char *), fl);
-/*
 	else if (type == 'p')
 		res = ft_print_adr((long long)va_arg(factor, void *), fl);
 	else if (type == 'd' || type == 'i')
 		res = ft_print_nbr(va_arg(factor, int), fl);
+/*
 	else if (type == 'u')
 		res = ft_print_nbr(va_arg(factor, unsigned int), fl);
 	else if (type == 'x')
