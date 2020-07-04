@@ -14,6 +14,7 @@ NAME	=	libftprintf.a
 LIBFT	=	./libft/libft.a
 
 SRC		=	ft_printf.c		\
+			ft_putchars.c	\
 			ft_formchar.c	\
 			ft_formstr.c	\
 			ft_formadr.c	\

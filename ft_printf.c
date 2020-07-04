@@ -80,28 +80,6 @@ void			ft_prec(const char **str, va_list factor, t_fl *fl)
 	}
 }
 
-int				ft_putchars(char c, int nbr, char *str, char pdn)
-{
-	int res;
-	int i;
-
-	i = 0;
-	res = 0;
-	if (pdn)
-	{
-		res = ft_putstr(str);
-		while (i++ < nbr)
-			res += ft_putchar(c);
-	}
-	else
-	{
-		while (i++ < nbr)
-			res += ft_putchar(c);
-		res += ft_putstr(str);
-	}
-	return (res);
-}
-
 int				ft_type(t_fl *fl, const char *str, \
 						va_list factor, const char **format)
 {
