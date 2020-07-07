@@ -51,6 +51,8 @@ int				ft_form_prnt(va_list factor, const char **format)
 			fl.zer = 1;
 		else if (*str == '.')
 			ft_prec(&str, factor, &fl);
+		else if (*str == '*')
+			fl.width = va_arg(factor, size_t);
 		else if (ft_isdigit(*str))
 		{
 			fl.width = ft_atoi(str);
@@ -97,14 +99,12 @@ int				ft_type(t_fl *fl, const char *str, \
 		res = ft_print_adr((long long)va_arg(factor, void *), fl);
 	else if (type == 'd' || type == 'i')
 		res = ft_print_nbr(va_arg(factor, int), fl, 10, 0);
-/*
 	else if (type == 'u')
-		res = ft_print_nbr(va_arg(factor, unsigned int), fl);
-*/
+		res = ft_print_nbr(va_arg(factor, unsigned int), fl, 10, 0);
 	else if (type == 'x')
-		res = ft_print_nbr(va_arg(factor, long), fl, 16, 1);
-	else if (type == 'X')
 		res = ft_print_nbr(va_arg(factor, long), fl, 16, 0);
+	else if (type == 'X')
+		res = ft_print_nbr(va_arg(factor, long), fl, 16, 1);
 	*format = ++str;
 	return (res);
 }
