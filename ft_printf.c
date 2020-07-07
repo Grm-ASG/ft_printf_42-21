@@ -96,15 +96,15 @@ int				ft_type(t_fl *fl, const char *str, \
 	else if (type == 'p')
 		res = ft_print_adr((long long)va_arg(factor, void *), fl);
 	else if (type == 'd' || type == 'i')
-		res = ft_print_nbr(va_arg(factor, int), fl);
+		res = ft_print_nbr(va_arg(factor, int), fl, 10, 0);
 /*
 	else if (type == 'u')
 		res = ft_print_nbr(va_arg(factor, unsigned int), fl);
-	else if (type == 'x')
-		res = ft_print_nbr_hex(va_arg(factor, long), 1, fl);
-	else if (type == 'X')
-		res = ft_print_nbr_hex(va_arg(factor, long), 0, fl);
 */
+	else if (type == 'x')
+		res = ft_print_nbr(va_arg(factor, long), fl, 16, 1);
+	else if (type == 'X')
+		res = ft_print_nbr(va_arg(factor, long), fl, 16, 0);
 	*format = ++str;
 	return (res);
 }

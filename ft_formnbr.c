@@ -56,13 +56,13 @@ static char		*ft_zer(char *num, int len, int width, t_fl *fl)
 	return (new);
 }
 
-int				ft_print_nbr(int adr, t_fl *fl)
+int				ft_print_nbr(long adr, t_fl *fl, char base, char X)
 {
 	char	*num;
 	int		res;
 	int		len;
 
-	if (!(num = ft_itoa_base(adr, 10, 0)))
+	if (!(num = ft_itoa_base(adr, base, !X)))
 		return (-2);
 	len = ft_strlen(num);
 	if (fl->prec > len)
