@@ -35,7 +35,6 @@ int				ft_putchars(char c, int nbr, char *str, char pdn);
 int				ft_print_char(char c, t_fl *fl);
 int				ft_print_str(char *str, t_fl *fl);
 int				ft_print_adr(long long num, t_fl *fl);
-int				ft_print_nbr(long adr, t_fl *fl, char base, char X);
-//int				ft_print_nbr_hex(long  adr, char X, t_fl *fl);
+int				ft_print_nbr(long adr, t_fl *fl, char base, char X, char type);
 
 #endif

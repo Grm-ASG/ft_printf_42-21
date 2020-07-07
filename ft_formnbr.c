@@ -56,7 +56,7 @@ static char		*ft_zer(char *num, int len, int width, t_fl *fl)
 	return (new);
 }
 
-int				ft_print_nbr(long adr, t_fl *fl, char base, char X)
+int				ft_print_nbr(long adr, t_fl *fl, char base, char X, char type)
 {
 	char	*num;
 	int		res;
@@ -64,6 +64,8 @@ int				ft_print_nbr(long adr, t_fl *fl, char base, char X)
 
 	if (!(num = ft_itoa_base(adr, base, X)))
 		return (-2);
+	if (type == 'i' && fl->zer && fl->prec != -1)
+		fl->zer = 0;
 	len = ft_strlen(num);
 	if (fl->prec > len)
 	{

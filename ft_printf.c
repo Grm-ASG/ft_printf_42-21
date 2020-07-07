@@ -98,13 +98,13 @@ int				ft_type(t_fl *fl, const char *str, \
 	else if (type == 'p')
 		res = ft_print_adr((long long)va_arg(factor, void *), fl);
 	else if (type == 'd' || type == 'i')
-		res = ft_print_nbr(va_arg(factor, int), fl, 10, 0);
+		res = ft_print_nbr(va_arg(factor, int), fl, 10, 0, type);
 	else if (type == 'u')
-		res = ft_print_nbr(va_arg(factor, unsigned int), fl, 10, 0);
+		res = ft_print_nbr(va_arg(factor, unsigned int), fl, 10, 0, type);
 	else if (type == 'x')
-		res = ft_print_nbr(va_arg(factor, long), fl, 16, 0);
+		res = ft_print_nbr(va_arg(factor, long), fl, 16, 0, type);
 	else if (type == 'X')
-		res = ft_print_nbr(va_arg(factor, long), fl, 16, 1);
+		res = ft_print_nbr(va_arg(factor, long), fl, 16, 1, type);
 	*format = ++str;
 	return (res);
 }
