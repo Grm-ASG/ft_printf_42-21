@@ -36,6 +36,7 @@ int				ft_printf(const char *format, ...)
 int				ft_form_prnt(va_list factor, const char **format)
 {
 	const char	*str = *format;
+	long long	star;
 	t_fl		fl;
 
 	fl.width = -1;
@@ -52,7 +53,10 @@ int				ft_form_prnt(va_list factor, const char **format)
 		else if (*str == '.')
 			ft_prec(&str, factor, &fl);
 		else if (*str == '*')
-			fl.width = va_arg(factor, size_t);
+		{
+			star = va_arg(factor, long);
+			fl.width = star < 0 ? star * -1 : star;
+		}
 		else if (ft_isdigit(*str))
 		{
 			fl.width = ft_atoi(str);

@@ -8,7 +8,9 @@ int				ft_print_char(char c, t_fl *fl)
 	str[0] = c;
 	str[1] = '\0';
 	res = 0;
-	if (fl->width > 1)
+	if (str[0] == '%' && fl->zer && !fl->pdn)
+		res += ft_putchars('0', fl->width - 1, str, fl->pdn);
+	else if (fl->width > 1)
 	{
 		if (c == '\0' && fl->pdn)
 			res += ft_putchar(c);

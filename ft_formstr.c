@@ -7,7 +7,7 @@ int				ft_print_str(char *str, t_fl *fl)
 	int		res;
 
 	if (!str)
-		return (ft_putstr("(null)"));
+		return (ft_print_str("(null)", fl));
 	s_len = ft_strlen(str);
 	if (!(tmp = malloc(s_len)))
 		return (-2);
