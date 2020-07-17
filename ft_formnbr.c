@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_formnbr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 20:57:30 by imedgar           #+#    #+#             */
+/*   Updated: 2020/07/17 21:04:03 by imedgar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static char		*ft_nbr(char *num, int len, int prec)
@@ -56,7 +68,7 @@ static char		*ft_zer(char *num, int len, int width, t_fl *fl)
 	return (new);
 }
 
-int				ft_print_nbr(long adr, t_fl *fl, char base, char X, char type)
+int				ft_print_nbr(long adr, t_fl *fl, char base, char x)
 {
 	char	*num;
 	int		res;
@@ -64,9 +76,9 @@ int				ft_print_nbr(long adr, t_fl *fl, char base, char X, char type)
 
 	if (fl->neg_star)
 		fl->prec = -1;
-	if (!(num = ft_itoa_base(adr, base, X)))
+	if (!(num = ft_itoa_base(adr, base, x)))
 		return (-2);
-	if (type == 'i' && fl->zer && fl->prec != -1)
+	if (fl->type == 'i' && fl->zer && fl->prec != -1)
 		fl->zer = 0;
 	len = ft_strlen(num);
 	if (fl->prec > len)
@@ -79,8 +91,7 @@ int				ft_print_nbr(long adr, t_fl *fl, char base, char X, char type)
 			return (-2);
 	if (fl->prec == 0)
 		num[0] = 0;
-	len = ft_strlen(num);
-	res = ft_putchars(' ', fl->width - len, num, fl->pdn);
+	res = ft_putchars(' ', fl->width - ft_strlen(num), num, fl->pdn);
 	free(num);
 	num = NULL;
 	return (res);

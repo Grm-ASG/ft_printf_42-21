@@ -6,7 +6,7 @@
 #    By: imedgar <imedgar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/19 10:09:16 by imedgar           #+#    #+#              #
-#    Updated: 2020/05/19 11:12:00 by imedgar          ###   ########.fr        #
+#    Updated: 2020/07/17 21:33:05 by imedgar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC		=	ft_printf.c		\
 			ft_formchar.c	\
 			ft_formstr.c	\
 			ft_formadr.c	\
-			ft_formnbr.c
+			ft_formnbr.c	\
+			ft_sub_func.c
 OBJ		=	$(SRC:c=o)
 HEADER	=	ft_printf.h
 

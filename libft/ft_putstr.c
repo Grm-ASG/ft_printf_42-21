@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 11:34:51 by imedgar           #+#    #+#             */
-/*   Updated: 2020/05/18 11:35:21 by imedgar          ###   ########.fr       */
+/*   Updated: 2020/07/17 20:59:13 by imedgar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int				ft_putstr(char *s)
 {
 	int res;
-	
+
 	res = 0;
 	while (*s)
 		res += ft_putchar(*s++);

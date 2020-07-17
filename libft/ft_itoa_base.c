@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 21:01:40 by imedgar           #+#    #+#             */
+/*   Updated: 2020/07/17 21:01:41 by imedgar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char		*ft_hlpr(long long val, char base, int *size, char *neg)
@@ -6,7 +18,7 @@ static char		*ft_hlpr(long long val, char base, int *size, char *neg)
 	char			*res;
 
 	*size = 1;
-	*neg = (base == 10 && val < 0) ? 1 : 0; 
+	*neg = (base == 10 && val < 0) ? 1 : 0;
 	tmp = val < 0 ? val * -1 : val;
 	while (tmp /= base)
 		*size += 1;
@@ -17,7 +29,7 @@ static char		*ft_hlpr(long long val, char base, int *size, char *neg)
 
 char			*ft_itoa_base(long long val, char base, char sign)
 {
-	char			base_str[] = "0123456789abcdef";
+	const char		base_str[] = "0123456789abcdef";
 	char			*res;
 	char			ltr;
 	char			neg;
@@ -36,7 +48,7 @@ char			*ft_itoa_base(long long val, char base, char sign)
 	while (val)
 	{
 		ltr = base_str[val % base];
-		res[--size + neg] = (sign && ltr > '9')? ltr - 32 : ltr;
+		res[--size + neg] = (sign && ltr > '9') ? ltr - 32 : ltr;
 		val /= base;
 	}
 	return (res);

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchars.c                                      :+:      :+:    :+:   */
+/*   ft_sub_func.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/17 20:57:13 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/17 20:57:14 by imedgar          ###   ########.fr       */
+/*   Created: 2020/07/17 21:32:04 by imedgar           #+#    #+#             */
+/*   Updated: 2020/07/17 21:32:15 by imedgar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				ft_putchars(char c, int nbr, char *str, char pdn)
+void			ft_init(t_fl *fl)
 {
-	int res;
-	int i;
+	fl->width = -1;
+	fl->prec = -1;
+	fl->pdn = 0;
+	fl->neg_star = 0;
+	fl->zer = 0;
+}
 
-	i = 0;
-	res = 0;
-	if (pdn)
+long long		ft_star_width(long long star, t_fl *fl)
+{
+	if (star < 0)
 	{
-		res = ft_putstr(str);
-		while (i++ < nbr)
-			res += ft_putchar(c);
+		fl->pdn = 1;
+		fl->neg_star = 1;
 	}
-	else
-	{
-		while (i++ < nbr)
-			res += ft_putchar(c);
-		res += ft_putstr(str);
-	}
-	return (res);
+	return (star < 0 ? star * -1 : star);
 }
