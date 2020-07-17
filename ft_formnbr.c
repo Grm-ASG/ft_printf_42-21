@@ -62,6 +62,8 @@ int				ft_print_nbr(long adr, t_fl *fl, char base, char X, char type)
 	int		res;
 	int		len;
 
+	if (fl->neg_star)
+		fl->prec = -1;
 	if (!(num = ft_itoa_base(adr, base, X)))
 		return (-2);
 	if (type == 'i' && fl->zer && fl->prec != -1)

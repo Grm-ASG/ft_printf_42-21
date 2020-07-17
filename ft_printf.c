@@ -42,6 +42,7 @@ int				ft_form_prnt(va_list factor, const char **format)
 	fl.width = -1;
 	fl.prec = -1;
 	fl.pdn = 0;
+	fl.neg_star = 0;
 	fl.zer = 0;
 	++str;
 	while (*str && !(ft_strchr("cspdiuxX%", *str)))
@@ -54,7 +55,12 @@ int				ft_form_prnt(va_list factor, const char **format)
 			ft_prec(&str, factor, &fl);
 		else if (*str == '*')
 		{
-			star = va_arg(factor, long);
+			star = va_arg(factor, int);
+			if (star < 0)
+			{
+				fl.pdn = 1;
+				fl.neg_star = 1;
+			}
 			fl.width = star < 0 ? star * -1 : star;
 		}
 		else if (ft_isdigit(*str))
@@ -70,9 +76,16 @@ int				ft_form_prnt(va_list factor, const char **format)
 
 void			ft_prec(const char **str, va_list factor, t_fl *fl)
 {
+	long long star;
+
 	(*str)++;
 	if (**str == '*')
-		fl->prec = va_arg(factor, size_t);
+	{
+		star = va_arg(factor, int);
+		if (star < 0)
+			fl->neg_star = 1;
+		fl->prec = star < 0 ? star * -1 : star;
+	}
 	else if (ft_isdigit(**str))
 	{
 		fl->prec = (size_t)ft_atoi(*str);

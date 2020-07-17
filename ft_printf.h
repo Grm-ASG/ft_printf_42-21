@@ -22,6 +22,7 @@ typedef struct	s_fl
 {
 	char		pdn;
 	char		zer;
+	char		neg_star;
 	long long	prec;
 	long long	width;
 }				t_fl;
