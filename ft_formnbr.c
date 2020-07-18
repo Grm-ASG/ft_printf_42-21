@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:30 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/18 19:55:33 by imedgar          ###   ########.fr       */
+/*   Updated: 2020/07/18 20:57:54 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int				ft_print_nbr(size_t adr, t_fl *fl, char base, char x)
 	int		res;
 	int		len;
 
-	if (fl->neg_star)
+	if (fl->neg_prec)
 		fl->prec = -1;
 	if (!(num = ft_itoa_base(adr, base, x)))
 		return (-2);

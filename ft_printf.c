@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:21 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/18 19:29:29 by imedgar          ###   ########.fr       */
+/*   Updated: 2020/07/18 20:54:15 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			ft_prec(const char **str, va_list factor, t_fl *fl)
 	{
 		star = va_arg(factor, int);
 		if (star < 0)
-			fl->neg_star = 1;
+			fl->neg_prec = 1;
 		fl->prec = star < 0 ? star * -1 : star;
 	}
 	else if (ft_isdigit(**str))

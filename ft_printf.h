@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:47 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/18 19:10:49 by imedgar          ###   ########.fr       */
+/*   Updated: 2020/07/18 20:54:33 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ typedef struct	s_fl
 {
 	char		pdn;
 	char		zer;
-	char		neg_star;
 	char		type;
+	char		neg_width;
+	char		neg_prec;
 	long long	prec;
 	long long	width;
 }				t_fl;
