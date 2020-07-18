@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:30 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/17 21:04:03 by imedgar          ###   ########.fr       */
+/*   Updated: 2020/07/18 19:55:33 by imedgar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static char		*ft_zer(char *num, int len, int width, t_fl *fl)
 	return (new);
 }
 
-int				ft_print_nbr(long adr, t_fl *fl, char base, char x)
+int				ft_print_nbr(size_t adr, t_fl *fl, char base, char x)
 {
 	char	*num;
 	int		res;
@@ -89,7 +89,7 @@ int				ft_print_nbr(long adr, t_fl *fl, char base, char x)
 	else if (fl->zer && !fl->pdn && fl->width > len)
 		if (!(num = ft_zer(num, len, fl->width, fl)))
 			return (-2);
-	if (fl->prec == 0)
+	if (fl->prec == 0 && num[0] == '0')
 		num[0] = 0;
 	res = ft_putchars(' ', fl->width - ft_strlen(num), num, fl->pdn);
 	free(num);

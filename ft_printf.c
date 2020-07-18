@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:21 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/17 21:32:26 by imedgar          ###   ########.fr       */
+/*   Updated: 2020/07/18 19:29:29 by imedgar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ int				ft_type(t_fl *fl, const char *str, \
 	else if (fl->type == 'u')
 		res = ft_print_nbr(va_arg(factor, unsigned int), fl, 10, 0);
 	else if (fl->type == 'x')
-		res = ft_print_nbr(va_arg(factor, long), fl, 16, 0);
+		res = ft_print_nbr(va_arg(factor, unsigned int), fl, 16, 0);
 	else if (fl->type == 'X')
-		res = ft_print_nbr(va_arg(factor, long), fl, 16, 1);
+		res = ft_print_nbr(va_arg(factor, unsigned int), fl, 16, 1);
 	*format = ++str;
 	return (res);
 }
