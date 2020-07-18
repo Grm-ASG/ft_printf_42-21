@@ -6,7 +6,7 @@
 #    By: imedgar <imedgar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/03 23:24:43 by imedgar           #+#    #+#              #
-#    Updated: 2020/07/18 22:42:55 by student          ###   ########.fr        #
+#    Updated: 2020/07/18 22:53:58 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,20 +64,18 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $@ $(OBJ)
-	@echo "\v$(GREEN)$(SIDE)\t\t $(NAME) CREATE \t\t$(SIDE)$(DEF)"
+	@echo "\v$(GREEN)$(SIDE)\t\t $(NAME) CREATE \t\t$(SIDE)$(DEF)\v"
 
 %.o: %.c $(HEADER)
 	@echo "$(GREEN)$(SIDE)\t\t CREATE $@ \t\t$(SIDE)$(DEF)"
 	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean:
-	clear
-	@echo "$(RED)$(SIDE)\t\t ERASE OBJ FILES \t\t$(SIDE)$(DEF)"
+	@echo "$(RED)$(SIDE)\t\t ERASE OBJ FILES OF $(NAME) \t$(SIDE)$(DEF)"
 	@$(RM) $(OBJ) $(OBJBNS)
 
 fclean: clean
 	@echo "$(RED)$(SIDE)\t\t ERASE $(NAME) \t\t\t$(SIDE)$(DEF)"
 	@$(RM) $(NAME)
-	@sleep 0.5
 
 re: fclean all
