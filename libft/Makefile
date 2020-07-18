@@ -6,7 +6,7 @@
 #    By: imedgar <imedgar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/03 23:24:43 by imedgar           #+#    #+#              #
-#    Updated: 2020/05/19 11:00:02 by imedgar          ###   ########.fr        #
+#    Updated: 2020/07/18 22:42:55 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,24 +46,38 @@ SRC		=	ft_atoi.c			\
 			ft_substr.c			\
 			ft_tolower.c		\
 			ft_toupper.c
-
 HEADER	=	libft.h
+OBJ		=	$(SRC:c=o)
+
+RED		=	\033[31m
+GREEN	=	\033[32m
+DEF		=	\033[0m
+SIDE	=	\/
 
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 RM		=	rm -f
 AR		=	ar rcs
-OBJ		=	$(SRC:c=o)
+
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
-	$(AR) $@ $(OBJ)
+$(NAME): $(OBJ)
+	@$(AR) $@ $(OBJ)
+	@echo "\v$(GREEN)$(SIDE)\t\t $(NAME) CREATE \t\t$(SIDE)$(DEF)"
+
+%.o: %.c $(HEADER)
+	@echo "$(GREEN)$(SIDE)\t\t CREATE $@ \t\t$(SIDE)$(DEF)"
+	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) $(OBJBNS)
+	clear
+	@echo "$(RED)$(SIDE)\t\t ERASE OBJ FILES \t\t$(SIDE)$(DEF)"
+	@$(RM) $(OBJ) $(OBJBNS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@echo "$(RED)$(SIDE)\t\t ERASE $(NAME) \t\t\t$(SIDE)$(DEF)"
+	@$(RM) $(NAME)
+	@sleep 0.5
 
 re: fclean all
