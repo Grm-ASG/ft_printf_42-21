@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:47 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/18 20:54:33 by student          ###   ########.fr       */
+/*   Updated: 2020/07/19 15:38:23 by imedgar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int				ft_putchars(char c, int nbr, char *str, char pdn);
 int				ft_print_char(char c, t_fl *fl);
 int				ft_print_str(char *str, t_fl *fl);
 int				ft_print_adr(long long num, t_fl *fl);
-int				ft_print_nbr(size_t adr, t_fl *fl, char base, char x);
+int				ft_print_nbr(long long adr, t_fl *fl, char base, char x);
 void			ft_init(t_fl *fl);
 long long		ft_star_width(long long star, t_fl *fl);
 

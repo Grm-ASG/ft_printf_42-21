@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:30 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/18 20:57:54 by student          ###   ########.fr       */
+/*   Updated: 2020/07/19 16:03:42 by imedgar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static char		*ft_zer(char *num, int len, int width, t_fl *fl)
 	return (new);
 }
 
-int				ft_print_nbr(size_t adr, t_fl *fl, char base, char x)
+int				ft_print_nbr(long long adr, t_fl *fl, char base, char x)
 {
 	char	*num;
 	int		res;
@@ -77,18 +77,18 @@ int				ft_print_nbr(size_t adr, t_fl *fl, char base, char x)
 	if (fl->neg_prec)
 		fl->prec = -1;
 	if (!(num = ft_itoa_base(adr, base, x)))
-		return (-2);
+		return (ERROR);
 	if (fl->type == 'i' && fl->zer && fl->prec != -1)
 		fl->zer = 0;
 	len = ft_strlen(num);
-	if (fl->prec > len)
+	if ((adr != 0 && fl->prec > len) || (adr < 0 && fl->prec == len))
 	{
 		if (!(num = ft_nbr(num, len, fl->prec)))
-			return (-2);
+			return (ERROR);
 	}
 	else if (fl->zer && !fl->pdn && fl->width > len)
 		if (!(num = ft_zer(num, len, fl->width, fl)))
-			return (-2);
+			return (ERROR);
 	if (fl->prec == 0 && num[0] == '0')
 		num[0] = 0;
 	res = ft_putchars(' ', fl->width - ft_strlen(num), num, fl->pdn);

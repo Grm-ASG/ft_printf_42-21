@@ -6,7 +6,7 @@
 #    By: imedgar <imedgar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/03 23:24:43 by imedgar           #+#    #+#              #
-#    Updated: 2020/07/18 22:53:58 by student          ###   ########.fr        #
+#    Updated: 2020/07/19 15:28:37 by imedgar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ $(NAME): $(OBJ)
 
 %.o: %.c $(HEADER)
 	@echo "$(GREEN)$(SIDE)\t\t CREATE $@ \t\t$(SIDE)$(DEF)"
-	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
+	@$(CC) $(CFLAGS) -I . -c $< -o $@
 
 clean:
 	@echo "$(RED)$(SIDE)\t\t ERASE OBJ FILES OF $(NAME) \t$(SIDE)$(DEF)"

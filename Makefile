@@ -6,7 +6,7 @@
 #    By: imedgar <imedgar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/19 10:09:16 by imedgar           #+#    #+#              #
-#    Updated: 2020/07/18 23:00:02 by student          ###   ########.fr        #
+#    Updated: 2020/07/19 15:48:51 by imedgar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(NAME): $(LIBFT) $(OBJ)
 
 %.o: %.c $(HEADER)
 	@echo "$(GREEN)$(SIDE)\t\t CREATE $@ \t\t$(SIDE)$(DEF)"
-	@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
+	@$(CC) $(CFLAGS) -I . -g -c $< -o $@
 
 $(LIBFT):
 	@make -C ./libft
