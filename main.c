@@ -2,7 +2,7 @@
 #include <limits.h>
 #include <stdio.h>
 
-#define ARG "|%0*.*d|\n", 3, 2, 97
+#define ARG "|%-*.*s|\n", -5, -1, "HELLO"
 
 int main(void)
 {

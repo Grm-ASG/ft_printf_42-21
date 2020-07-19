@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@21-school.ru>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 20:57:30 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/19 16:03:42 by imedgar          ###   ########.fr       */
+/*   Updated: 2020/07/19 17:07:50 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ int				ft_print_nbr(long long adr, t_fl *fl, char base, char x)
 	if (fl->type == 'i' && fl->zer && fl->prec != -1)
 		fl->zer = 0;
 	len = ft_strlen(num);
-	if ((adr != 0 && fl->prec > len) || (adr < 0 && fl->prec == len))
+	if (fl->prec > len || (adr < 0 && fl->prec == len))
 	{
 		if (!(num = ft_nbr(num, len, fl->prec)))
 			return (ERROR);
 	}
-	else if (fl->zer && !fl->pdn && fl->width > len)
+	else if (fl->zer && !fl->pdn && ((fl->width > len && fl->prec == -1) || fl->prec > len))
 		if (!(num = ft_zer(num, len, fl->width, fl)))
 			return (ERROR);
 	if (fl->prec == 0 && num[0] == '0')
