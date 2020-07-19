@@ -6,7 +6,7 @@
 /*   By: imedgar <imedgar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 22:58:16 by imedgar           #+#    #+#             */
-/*   Updated: 2020/07/18 22:19:40 by student          ###   ########.fr       */
+/*   Updated: 2020/07/19 19:28:38 by imedgar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,3 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 
 #endif
-
